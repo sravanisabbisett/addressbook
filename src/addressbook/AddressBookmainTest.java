@@ -7,6 +7,7 @@ public class AddressBookmainTest {
 
 	
 	public static void main(String[] args) throws Throwable {
+	ABMImplementation abm=new ABMImplementation();
      Scanner sc=new Scanner(System.in);
         boolean i=true;
          
@@ -21,7 +22,7 @@ public class AddressBookmainTest {
        int number=sc.nextInt();
        switch (number) {
        case 1:
-    	   System.out.println("one");
+    	   abm.newAddressBook();
     	   break;
        case 2:
     	   	System.out.println("two");
