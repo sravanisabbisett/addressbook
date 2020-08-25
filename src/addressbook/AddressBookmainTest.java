@@ -47,7 +47,7 @@ public class AddressBookmainTest {
         		arraylist=ab.searchPerson(Filename);
         		break;
         	case 5:
-        		System.out.println("five");
+        		arraylist=ab.sortByName(Filename);
         		break;
         	case 6:
                 System.out.println("six");

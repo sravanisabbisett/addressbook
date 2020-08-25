@@ -132,8 +132,19 @@ public class ABimplementation implements AddressBook  {
 	}
 	@Override
 	public ArrayList<PersonInfo> sortByName(String Filename) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<PersonInfo> sortByname=null;
+		try {
+			sortByname = RW.Readcsv(Filename);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Collections.sort(sortByname,(o1,o2) ->o1.getfname().compareToIgnoreCase(o2.getfname()));
+		for(PersonInfo p:sortByname) {
+			System.out.println(p.toString());
+		}
+		
+		return sortByname;
 	}
 	@Override
 	public ArrayList<PersonInfo> sortByZip(String Filename) {
