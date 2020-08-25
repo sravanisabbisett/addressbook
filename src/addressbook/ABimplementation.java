@@ -117,8 +117,18 @@ public class ABimplementation implements AddressBook  {
 	}
 	@Override
 	public ArrayList<PersonInfo> searchPerson(String Filename) throws Throwable {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<PersonInfo> person=RW.Readcsv(Filename);
+		  System.out.println("Enter the phone number to search");
+		  String search=sc.next();
+		  for(int i=0;i<person.size();i++) {
+			  if(search.equalsIgnoreCase(person.get(i).getphonenumber())) {
+			     System.out.println(person.get(i));
+				  
+			  }
+			  
+		  }
+		  
+			return person;
 	}
 	@Override
 	public ArrayList<PersonInfo> sortByName(String Filename) {

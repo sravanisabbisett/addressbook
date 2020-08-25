@@ -44,7 +44,7 @@ public class AddressBookmainTest {
         		arraylist=ab.deletePerson(Filename);
         		break;
         	case 4:
-        		System.out.println("four");
+        		arraylist=ab.searchPerson(Filename);
         		break;
         	case 5:
         		System.out.println("five");
