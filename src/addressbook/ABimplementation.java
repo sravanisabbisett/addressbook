@@ -164,7 +164,17 @@ public class ABimplementation implements AddressBook  {
 	}
 	@Override
 	public void display(String Filename) {
-		// TODO Auto-generated method stub
+		ArrayList<PersonInfo> adbook = null;
+		try {
+		adbook=RW.Readcsv(Filename);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(PersonInfo p: adbook) {
+			System.out.println(p.toString());
+		}
 		
 	}
 

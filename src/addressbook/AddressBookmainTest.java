@@ -53,7 +53,7 @@ public class AddressBookmainTest {
                 arraylist=ab.sortByZip(Filename);
         		break;
         	case 7:
-        		System.out.println("seven");
+        		ab.display(Filename);
         		break;
         	}
         	break;
