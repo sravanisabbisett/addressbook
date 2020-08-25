@@ -1,5 +1,9 @@
 package addressbook;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -69,7 +73,23 @@ public class ABMImplementation implements AddressBookManagerInterface {
 
 	@Override
 	public void saveAsAddressBook(String oldfile, String newfile) throws Throwable {
-		// TODO Auto-generated method stub
+		String path1="C:\\Users\\PC\\eclipse-workspace\\addressbook\\src\\"+oldfile;
+		String path2="C:\\Users\\PC\\eclipse-workspace\\addressbook\\src\\"+newfile;
+		File oldName = new File(path1); 
+		File newName =  new File(path2);
+		FileInputStream inputStream = new FileInputStream(oldName);
+	    FileChannel inChannel = inputStream.getChannel();
+	 
+	    
+	    FileOutputStream outputStream = new FileOutputStream(newName);
+	    FileChannel outChannel = outputStream.getChannel();
+	 
+	    inChannel.transferTo(0, oldName.length(), outChannel);
+	 
+	    inputStream.close();
+	    outputStream.close();
+		
+			
 		
 	}
 

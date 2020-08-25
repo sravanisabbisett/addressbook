@@ -65,7 +65,10 @@ public class AddressBookmainTest {
     	   
     	   break;
        case 4:
- 	        System.out.println("four");
+    	   RW.showfiles();
+	        String oldfile=sc.next();
+	        String newfile=sc.next();
+	        abm.saveAsAddressBook(oldfile, newfile);
  	        break;
        case 5:
     	   System.out.println("five");
