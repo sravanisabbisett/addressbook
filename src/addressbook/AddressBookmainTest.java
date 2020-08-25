@@ -74,10 +74,11 @@ public class AddressBookmainTest {
     	   System.out.println("five");
     	   break;
        case 6:
-    	   System.out.println("six");
+    	   abm.quitAddressBook();
+    	   i=false;
     	   break; 
     	default:
-    		System.out.println("please enter details");
+    		System.out.println("please enter valid number to perform operation");
        }
        System.out.println("do you want to continue(Y/N)?");
        String var=sc.next();

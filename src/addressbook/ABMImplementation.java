@@ -101,7 +101,7 @@ public class ABMImplementation implements AddressBookManagerInterface {
 
 	@Override
 	public void quitAddressBook() {
-		// TODO Auto-generated method stub
+		System.exit(0);
 		
 	}
 
