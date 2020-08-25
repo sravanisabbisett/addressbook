@@ -148,8 +148,19 @@ public class ABimplementation implements AddressBook  {
 	}
 	@Override
 	public ArrayList<PersonInfo> sortByZip(String Filename) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<PersonInfo> personarraylist=null;
+		try {
+			personarraylist = RW.Readcsv(Filename);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Comparator<PersonInfo> personzipComparator=Comparator.comparingInt(PersonInfo :: getzip);
+	    Collections.sort(personarraylist,personzipComparator);
+	    for(PersonInfo p:personarraylist) {
+	    	System.out.println(p.toString());
+	    }
+	    return personarraylist;
 	}
 	@Override
 	public void display(String Filename) {

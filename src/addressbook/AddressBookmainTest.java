@@ -50,7 +50,7 @@ public class AddressBookmainTest {
         		arraylist=ab.sortByName(Filename);
         		break;
         	case 6:
-                System.out.println("six");
+                arraylist=ab.sortByZip(Filename);
         		break;
         	case 7:
         		System.out.println("seven");
