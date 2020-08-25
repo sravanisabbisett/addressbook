@@ -54,8 +54,39 @@ public class ABimplementation implements AddressBook  {
 	}
 	@Override
 	public ArrayList<PersonInfo> editPerson(String Filename) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<PersonInfo> editperson = null;
+		try {
+			editperson = RW.Readcsv(Filename);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Enter your edit person details");
+		String search =sc.next();
+		for(int i=0; i<editperson.size();i++) {
+			String fsearch=editperson.get(i).getphonenumber();
+			if(search.equalsIgnoreCase(fsearch)) {
+				System.out.println("Enter firstname: ");
+				firstname=sc.next();
+				System.out.println("Enter lastname:");
+				lastname=sc.next();
+				System.out.println("Enter address:");
+				address=sc.next();
+				System.out.println("Enter city:");
+				city=sc.next();
+				System.out.println("Enter state");
+				state=sc.next();
+				System.out.println("Enter zipcode:");
+				zipcode=sc.nextInt();
+				System.out.println("Enter phone number:");
+				phonenumber=sc.next();
+				PersonInfo edit=editperson.set(i, (new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber)));
+                System.out.println(edit);
+				System.out.println(editperson.get(i));
+			}
+			
+		}
+		return editperson;
 	}
 	@Override
 	public ArrayList<PersonInfo> deletePerson(String Filename) throws Throwable {

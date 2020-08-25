@@ -38,7 +38,7 @@ public class AddressBookmainTest {
         		arraylist=ab.addPerson(Filename);
         		break;
         	case 2:
-        		System.out.println("two");
+        		arraylist=ab.editPerson(Filename);
         		break;
         	case 3:
         		System.out.println("three");
