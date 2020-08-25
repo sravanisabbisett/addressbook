@@ -71,7 +71,9 @@ public class AddressBookmainTest {
 	        abm.saveAsAddressBook(oldfile, newfile);
  	        break;
        case 5:
-    	   System.out.println("five");
+    	  RW.showfiles();
+    	  Filename=sc.next();
+    	  abm.closeAddressBook(Filename);
     	   break;
        case 6:
     	   abm.quitAddressBook();

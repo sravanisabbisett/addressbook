@@ -10,6 +10,7 @@ public interface AddressBookManagerInterface {
 	public void openAddressBook();
 	public void saveAddressBook(String Filename,ArrayList<PersonInfo> save);
 	public void saveAsAddressBook(String oldfile,String newfile) throws Throwable;
-	public void closeAddressBook();
+	public void closeAddressBook(String Filename);
 	public void quitAddressBook();
+	
 }

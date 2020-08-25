@@ -92,10 +92,9 @@ public class ABMImplementation implements AddressBookManagerInterface {
 			
 		
 	}
-
-	@Override
-	public void closeAddressBook() {
-		// TODO Auto-generated method stub
+    @Override
+	public void closeAddressBook(String Filename) {
+		
 		
 	}
 
