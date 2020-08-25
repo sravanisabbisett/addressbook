@@ -51,14 +51,18 @@ public class ABMImplementation implements AddressBookManagerInterface {
 
 	@Override
 	public void openAddressBook() {
-		// TODO Auto-generated method stub
+		RW.showfiles();
 		
 	}
 
 	@Override
 	public void saveAddressBook(String Filename, ArrayList<PersonInfo> save) {
-		// TODO Auto-generated method stub
-		
+		try {
+			RW.Writecsv(Filename, save);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

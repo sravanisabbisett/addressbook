@@ -1,14 +1,18 @@
 package addressbook;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookmainTest {
 
 	
 	public static void main(String[] args) throws Throwable {
-	ABMImplementation abm=new ABMImplementation();
-     Scanner sc=new Scanner(System.in);
+		Scanner sc=new Scanner(System.in);
+		ABimplementation ab=new ABimplementation();
+		ABMImplementation abm=new ABMImplementation();
+		ArrayList<PersonInfo> arraylist=new ArrayList<PersonInfo>();
+		ReadWrite RW=new ReadWrite();
         boolean i=true;
          
      while(i) {   	 
@@ -17,21 +21,21 @@ public class AddressBookmainTest {
         +"3) saveAddressBook\n"+"4) saveAsAddressBook\n"+"5) close AddressBook\n"+"6) Quit AddressBook");
         
         System.out.println("please enter your choice");
-        	
-        	
-       int number=sc.nextInt();
+        int number=sc.nextInt();
        switch (number) {
        case 1:
     	   abm.newAddressBook();
     	   break;
        case 2:
-    	   	System.out.println("two");
+    	    abm.openAddressBook();
+   	   	    System.out.println("Enter the file name to open");
+   	   	    String Filename=sc.next();
     	   	System.out.println("1) Addperson \n"+"2)edit person \n"+"3)delete person \n"+"4)search person \n"+"5)sortByname \n"+"6)sortByzip \n"+"7)display");
     	   	System.out.println("please enter your choice ");
         	int ch1=sc.nextInt();
         	switch (ch1) {
         	case 1:
-        	    System.out.println("one");
+        		arraylist=ab.addPerson(Filename);
         		break;
         	case 2:
         		System.out.println("two");
@@ -54,7 +58,11 @@ public class AddressBookmainTest {
         	}
         	break;
        case 3:
-    	   System.out.println("three");
+    	   RW.showfiles();
+    	   System.out.println("please select the file u want to save");
+    	   Filename=sc.next();
+    	   abm.saveAddressBook(Filename, arraylist);
+    	   
     	   break;
        case 4:
  	        System.out.println("four");
