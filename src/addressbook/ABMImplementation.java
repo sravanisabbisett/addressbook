@@ -38,6 +38,7 @@ public class ABMImplementation implements AddressBookManagerInterface {
 			zipcode=sc.nextInt();
 			System.out.println("Enter mobilenumber");
 			phonenumber=sc.next();
+			
 		   personarraylist.add(new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber));
 		   try {
 			RW.Writecsv(Filename, personarraylist);
@@ -45,9 +46,10 @@ public class ABMImplementation implements AddressBookManagerInterface {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+			}
 		}
 		
-	}
+	
 
 	@Override
 	public void openAddressBook() {

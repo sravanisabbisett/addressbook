@@ -44,9 +44,14 @@ public class ABimplementation implements AddressBook  {
 		zipcode=sc.nextInt();
 		System.out.println("Enter mobilenumber");
 		phonenumber=sc.next();
+		if(phonenumber.matches("\\d{10}")) {
 		person.add(new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber));
 	    System.out.println("size of an array list after adding person"+person.size());
-		
+		}
+		else
+		{
+			System.out.println("please enter valid phone number");
+		}
 		}
 	
 	return person;
@@ -80,9 +85,14 @@ public class ABimplementation implements AddressBook  {
 				zipcode=sc.nextInt();
 				System.out.println("Enter phone number:");
 				phonenumber=sc.next();
+				if(phonenumber.matches("\\d{10}")) {
 				PersonInfo edit=editperson.set(i, (new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber)));
                 System.out.println(edit);
 				System.out.println(editperson.get(i));
+				}
+				else {
+					System.out.println("please enter valid phonenumber");
+				}
 			}
 			
 		}
@@ -90,8 +100,20 @@ public class ABimplementation implements AddressBook  {
 	}
 	@Override
 	public ArrayList<PersonInfo> deletePerson(String Filename) throws Throwable {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<PersonInfo> delPerson=RW.Readcsv(Filename);
+		System.out.println("Enter the delete person phone number");
+		String search=sc.next();
+		System.out.println("size of an array list before deleting"+delPerson.size());
+		for(int i=0;i<delPerson.size();i++) {
+			if(search.equalsIgnoreCase(delPerson.get(i).getphonenumber())) {
+				System.out.println(delPerson.get(i));
+				delPerson.remove(i);
+				System.out.println("size of an array list after deleting"+delPerson.size());
+				
+				
+			}
+		}
+		return delPerson;
 	}
 	@Override
 	public ArrayList<PersonInfo> searchPerson(String Filename) throws Throwable {
