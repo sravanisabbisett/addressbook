@@ -12,7 +12,7 @@ public class ABimplementation implements AddressBook  {
 	String address;
 	String city;
 	String state;
-	int zipcode;
+	String zipcode;
 	String phonenumber;
 	Scanner sc=new Scanner(System.in);
 	ArrayList<PersonInfo> personarraylist=new ArrayList<PersonInfo>();
@@ -41,16 +41,16 @@ public class ABimplementation implements AddressBook  {
 		System.out.println("Enter state:");
 		state=sc.next();
 		System.out.println("Enter zipcode:");
-		zipcode=sc.nextInt();
+		zipcode=sc.next();
 		System.out.println("Enter mobilenumber");
 		phonenumber=sc.next();
-		if(phonenumber.matches("\\d{10}")) {
+		if(phonenumber.matches("\\d{10}")&&(zipcode.matches("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$"))&&(firstname.matches("[A-Z][a-z]*"))&&(lastname.matches("[A-Z][a-z]*"))) {
 		person.add(new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber));
 	    System.out.println("size of an array list after adding person"+person.size());
 		}
 		else
 		{
-			System.out.println("please enter valid phone number");
+			System.out.println("please enter valid phone number and zip");
 		}
 		}
 	
@@ -82,16 +82,16 @@ public class ABimplementation implements AddressBook  {
 				System.out.println("Enter state");
 				state=sc.next();
 				System.out.println("Enter zipcode:");
-				zipcode=sc.nextInt();
+				zipcode=sc.next();
 				System.out.println("Enter phone number:");
 				phonenumber=sc.next();
-				if(phonenumber.matches("\\d{10}")) {
+				if(phonenumber.matches("\\d{10}")&&(zipcode.matches("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$"))&&(firstname.matches("[A-Z][a-z]*"))&&(lastname.matches("[A-Z][a-z]*"))) {
 				PersonInfo edit=editperson.set(i, (new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber)));
                 System.out.println(edit);
 				System.out.println(editperson.get(i));
 				}
 				else {
-					System.out.println("please enter valid phonenumber");
+					System.out.println("please enter valid phonenumber,zip,firstnameand lastname");
 				}
 			}
 			
@@ -155,7 +155,7 @@ public class ABimplementation implements AddressBook  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Comparator<PersonInfo> personzipComparator=Comparator.comparingInt(PersonInfo :: getzip);
+		Comparator<PersonInfo> personzipComparator=Comparator.comparing(PersonInfo :: getzip);
 	    Collections.sort(personarraylist,personzipComparator);
 	    for(PersonInfo p:personarraylist) {
 	    	System.out.println(p.toString());

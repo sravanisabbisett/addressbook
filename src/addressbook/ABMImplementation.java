@@ -15,7 +15,7 @@ public class ABMImplementation implements AddressBookManagerInterface {
 	String address;
 	String city;
 	String state;
-	int zipcode;
+	String zipcode;
 	String phonenumber;
 	Scanner sc=new Scanner(System.in);
 	//PersonInfo person;
@@ -39,10 +39,10 @@ public class ABMImplementation implements AddressBookManagerInterface {
 			System.out.println("Enter state:");
 			state=sc.next();
 			System.out.println("Enter zipcode:");
-			zipcode=sc.nextInt();
+			zipcode=sc.next();
 			System.out.println("Enter mobilenumber");
 			phonenumber=sc.next();
-			
+			if(phonenumber.matches("\\d{10}")&&(zipcode.matches("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$"))&&(firstname.matches("[A-Z][a-z]*"))&&(lastname.matches("[A-Z][a-z]*"))) {
 		   personarraylist.add(new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber));
 		   try {
 			RW.Writecsv(Filename, personarraylist);
@@ -50,6 +50,7 @@ public class ABMImplementation implements AddressBookManagerInterface {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+			}
 			}
 		}
 		

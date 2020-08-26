@@ -17,7 +17,7 @@ public class ReadWrite {
 		writer.writeNext(line1);
 		for(int i=0;i<addressbook.size();i++) {
 			PersonInfo index=addressbook.get(i);
-		String line2[]= {index.getfname(),index.getlname(),index.getAddress(),index.getCity(),index.getstate(),Integer.toString(index.getzip()),String.valueOf(index.getphonenumber())};
+		String line2[]= {index.getfname(),index.getlname(),index.getAddress(),index.getCity(),index.getstate(),index.getzip(),String.valueOf(index.getphonenumber())};
 		writer.writeNext(line2);
 
 		}
@@ -35,7 +35,7 @@ public class ReadWrite {
 		   i=i+1;
 		   if (i!=1) {
 		 String[] value=line.split(",");
-		 person.add(new PersonInfo(value[0].substring(1,value[0].length()-1),value[1].substring(1,value[1].length()-1),value[2].substring(1,value[2].length()-1),value[3].substring(1,value[3].length()-1),value[4].substring(1,value[4].length()-1),Integer.parseInt(value[5].substring(1, value[5].length()-1)),(value[6].substring(1, value[6].length()-1))));		 
+		 person.add(new PersonInfo(value[0].substring(1,value[0].length()-1),value[1].substring(1,value[1].length()-1),value[2].substring(1,value[2].length()-1),value[3].substring(1,value[3].length()-1),value[4].substring(1,value[4].length()-1),value[5].substring(1, value[5].length()-1),(value[6].substring(1, value[6].length()-1))));		 
 		     } 
 		   }
 	   BR.close();

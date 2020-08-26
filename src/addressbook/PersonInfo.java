@@ -8,10 +8,10 @@ public class PersonInfo  {
 	public String address;
 	public String city;
 	public String state;
-	public int zip;
+	public String zip;
 	public String phonenumber;
 	
-	public PersonInfo(String firstname,String lastname,String address,String city,String state,int zip,String phonenumber) {
+	public PersonInfo(String firstname,String lastname,String address,String city,String state,String zip,String phonenumber) {
 		this.firstname=firstname;
 		this.lastname=lastname;
 		this.address=address;
@@ -36,7 +36,7 @@ public class PersonInfo  {
 	public String getstate() {
 		return state;
 	}
-	public int getzip() {
+	public String getzip() {
 		return zip;
 	}
 	public String getphonenumber() {
@@ -57,7 +57,7 @@ public class PersonInfo  {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public void setZip(int zip) {
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 	public void setPhonenumber(String phonenumber) {
