@@ -28,6 +28,7 @@ public class ABimplementation implements AddressBook  {
 			e1.printStackTrace();
 		}
 		System.out.println("please enter the number of persons to add");
+		int flag=0;
 		int number=sc.nextInt();
 		for(int i=0;i<number;i++) {
 		System.out.println("Enter Firstname :");
@@ -44,15 +45,22 @@ public class ABimplementation implements AddressBook  {
 		zipcode=sc.next();
 		System.out.println("Enter mobilenumber");
 		phonenumber=sc.next();
-		if(phonenumber.matches("\\d{10}")&&(zipcode.matches("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$"))&&(firstname.matches("[A-Z][a-z]*"))&&(lastname.matches("[A-Z][a-z]*"))) {
-		person.add(new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber));
-	    System.out.println("size of an array list after adding person"+person.size());
+		if(phonenumber.equalsIgnoreCase(person.get(i).getphonenumber())) {
+			flag++;
 		}
-		else
-		{
-			System.out.println("please enter valid phone number and zip");
+		
+		if(phonenumber.matches("\\d{10}")&&(flag==0)&&(zipcode.matches("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$"))&&(firstname.matches("[A-Z][a-z]*"))&&(lastname.matches("[A-Z][a-z]*"))) {
+		 person.add(new PersonInfo(firstname,lastname,address,city,state,zipcode,phonenumber));
+	     System.out.println("size of an array list after adding person"+person.size());
+		    }
+		else if(flag==1) {
+			System.out.println("data already exists");
 		}
+		 else {
+			System.out.println("please enter valid phone number,zip,firdtname and lastname");
 		}
+	 
+ }
 	
 	return person;
 		
